@@ -1,0 +1,177 @@
+{
+  "branding": {
+    "companyName": "DesignBell",
+    "logo": "/logo.png"
+  },
+  "hero": {
+    "announcement": "🎉 Launching September 25",
+    "title": "Construction Law Made Simple. Get Paid. Stay Safe. Cut Legal Costs.",
+    "subtitle": "The first AI-powered legal assistant built for Aussie builders, subcontractors, and tradies. Affordable, fast, and always on your side.",
+    "launchDate": "2025-09-25T00:00:00",
+    "emailPlaceholder": "your.email@domain.com",
+    "ctaText": "Join the Waitlist Today"
+  },
+  "process": {
+    "title": "From Problem to Solution in 3 Simple Steps",
+    "subtitle": "Forget $500/hour lawyer bills. Here's how we protect your business:",
+    "steps": [
+      {
+        "title": "Subscribe",
+        "description": "Flat monthly fee.\nNo hidden extras."
+      },
+      {
+        "title": "Request",
+        "description": "Ask for contracts, payment claims,\nWHS help, or anything legal."
+      },
+      {
+        "title": "Receive",
+        "description": "Get what you need\nin 24–48 hours."
+      }
+    ],
+    "legalServices": [
+      "Payment Claims (SoP)",
+      "Contract Reviews",
+      "WHS Compliance",
+      "Employment Law",
+      "Subcontractor Agreements",
+      "Insurance & Risk",
+      "Environmental Approvals",
+      "Safety Checklists",
+      "Dispute Resolution"
+    ],
+    "bottomSection": {
+      "title": "All the Legal Protection You'll Ever Need.\nOne Subscription.",
+      "subtitle": "It's like having a construction lawyer in your pocket — for less than one site fine."
+    }
+  },
+  "pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Choose the plan that fits your business. No hidden fees, no scary lawyer invoices.\nProtect your business today.",
+    "tiers": [
+      {
+        "name": "👷 Starter",
+        "price": 295,
+        "interval": "per month",
+        "description": "For sole traders & subbies",
+        "ctaText": "Get Started"
+      },
+      {
+        "name": "🏗️ Professional",
+        "price": 995,
+        "interval": "per month",
+        "description": "For small builders",
+        "ctaText": "Get Started",
+        "highlight": true
+      },
+      {
+        "name": "🏢 Enterprise",
+        "priceText": "Custom Pricing",
+        "interval": "per month",
+        "description": "For large firms & developers",
+        "ctaText": "Contact Sales"
+      }
+    ]
+  },
+  "bentoGrid": {
+    "badge": "The Difference",
+    "title": "We Built This for Construction SMEs —\nNot Big Corporates.",
+    "subtitle": "Law firms weren't built for tradies. We were. Fast, simple, affordable legal support when you need it most.",
+    "cards": [
+      {
+        "title": "World-Class, Every Time",
+        "description": "Get expert construction law advice without paying expert rates."
+      },
+      {
+        "title": "Unlimited Requests",
+        "description": "Contracts, claims, compliance — ask as often as you need."
+      },
+      {
+        "title": "Flat Monthly Fee",
+        "description": "No scary lawyer invoices."
+      },
+      {
+        "title": "Quick Turnarounds",
+        "description": "Answers in as little as 48 hours."
+      },
+      {
+        "title": "Yours to Keep",
+        "description": "Every doc we prepare is 100% yours."
+      },
+      {
+        "title": "Flexible Plans",
+        "description": "Pause or upgrade anytime."
+      }
+    ]
+  },
+  "waitlist": {
+    "badge": "🚧 Launching Soon — Join Our Founding Members",
+    "title": "Join the Waitlist",
+    "subtitle": "Secure early access, discounted pricing, and peace of mind for your business.",
+    "emailPlaceholder": "your.email@domain.com",
+    "ctaText": "Join Waitlist"
+  },
+  "featureComparison": {
+    "badge": "Feature Comparison",
+    "title": "Why Choose Us Over Traditional Law Firms?",
+    "subtitle": "See how we stack up against expensive traditional legal services.",
+    "competitors": [
+      "Traditional Law",
+      "Online Services",
+      "Construction Legal"
+    ],
+    "bottomCta": {
+      "title": "Ready to Switch to Smarter Legal Support?",
+      "subtitle": "Join hundreds of construction professionals who've made the switch.",
+      "ctaText": "Get Started Today"
+    }
+  },
+  "faq": {
+    "title": "FAQ's",
+    "items": [
+      {
+        "question": "What is this?",
+        "answer": "Your subscription-based legal assistant for construction SMEs. Powered by AI, backed by real lawyers."
+      },
+      {
+        "question": "When do you launch?",
+        "answer": "Founding members get early access soon."
+      },
+      {
+        "question": "What do I get as a founding member?",
+        "answer": "Discounted pricing, priority access, and influence on the platform's future."
+      },
+      {
+        "question": "What kind of work can you help with?",
+        "answer": "Payment claims, contracts, WHS, insurance, employment law, environmental compliance, and disputes."
+      },
+      {
+        "question": "How fast do you deliver?",
+        "answer": "Most requests are handled within 48 hours."
+      }
+    ]
+  },
+  "countdownSection": {
+    "title": "One Subscription. Unlimited Legal Protection.",
+    "subtitle": "Stop losing sleep over payments, fines, and contracts. Secure your spot today.",
+    "targetDate": "2025-09-25T00:00:00"
+  },
+  "footer": {
+    "title": "One Subscription.\nUnlimited Designs.",
+    "subtitle": "Secure a Founding Member spot.",
+    "emailPlaceholder": "your.email@domain.com",
+    "ctaText": "Join Waitlist",
+    "companyName": "DesignBell",
+    "copyright": "©2025 DesignBell LLC",
+    "location": "Headquartered in Wyoming, US",
+    "links": [
+      {
+        "text": "Terms of service",
+        "href": "#"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "#"
+      }
+    ]
+  }
+}
