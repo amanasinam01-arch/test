@@ -1,5 +1,9 @@
+'use client';
+
 import { Check, X } from "lucide-react";
 import { ContentData } from "@/lib/content";
+import { useState } from "react";
+import EmailModal from "./email-modal";
 
 interface FeatureComparisonProps {
   content: ContentData;
@@ -69,6 +73,12 @@ const comparisonData = [
 ];
 
 export default function FeatureComparison({ content }: FeatureComparisonProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleGetStarted = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -197,13 +207,22 @@ export default function FeatureComparison({ content }: FeatureComparisonProps) {
             <p className="text-white/70 mb-6">
               {content.featureComparison.bottomCta.subtitle}
             </p>
-            <button className="bg-primary hover:bg-primary/80 text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 flex items-center gap-2 mx-auto">
+            <button 
+              onClick={handleGetStarted}
+              className="bg-primary hover:bg-primary/80 text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 flex items-center gap-2 mx-auto"
+            >
               {content.featureComparison.bottomCta.ctaText}
               <Check className="w-4 h-4" />
             </button>
           </div>
         </div>
       </div>
+      
+      {/* Email Modal */}
+      <EmailModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }

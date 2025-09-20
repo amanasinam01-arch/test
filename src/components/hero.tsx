@@ -1,5 +1,7 @@
+'use client';
+
 import { ChevronRight } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { AnimatedGradientText } from "./ui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import Countdown from "./countdown";
@@ -11,6 +13,44 @@ interface HeroProps {
 }
 
 const Hero = ({ content }: HeroProps) => {
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setIsLoading(true);
+    setMessage('');
+    
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setMessage('Welcome email sent! Check your inbox.');
+        setIsSuccess(true);
+        setEmail('');
+      } else {
+        setMessage(result.message || 'Something went wrong. Please try again.');
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      setMessage('Network error. Please try again.');
+      setIsSuccess(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col sm:h-screen sm:pb-10">
@@ -58,23 +98,47 @@ const Hero = ({ content }: HeroProps) => {
             {content.hero.subtitle}
           </p>
           <Countdown targetDate={new Date(content.hero.launchDate)} />
-          <div className="p-3 sm:p-5 w-full mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0">
+          <form onSubmit={handleSubmit} className="p-3 sm:p-5 w-full mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0">
             <div className="relative max-w-[550px] w-full">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-full bg-black/30 backdrop-blur-sm placeholder:text-white/60 text-white text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-white/40 transition-all duration-200"
                 placeholder={content.hero.emailPlaceholder}
+                required
+                disabled={isLoading}
               />
-              <button className="font-medium cursor-pointer text-white hidden sm:flex items-center gap-1 absolute -right-1 top-0 bg-primary hover:bg-primary/80 h-full px-6 rounded-full transition-all duration-200 text-base">
-                <ChevronRight size={18} />
-{content.hero.ctaText}
+              <button 
+                type="submit"
+                disabled={isLoading || !email}
+                className="font-medium cursor-pointer text-white hidden sm:flex items-center gap-1 absolute -right-1 top-0 bg-primary hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed h-full px-6 rounded-full transition-all duration-200 text-base"
+              >
+                {isLoading ? (
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <>
+                    <ChevronRight size={18} />
+                    {content.hero.ctaText}
+                  </>
+                )}
               </button>
             </div>
-            <button className="font-medium cursor-pointer text-white flex sm:hidden items-center justify-center gap-2 bg-primary hover:bg-primary/80 px-8 py-3 rounded-full transition-all duration-200 text-base">
-              <ChevronRight size={18} />
-              {content.hero.ctaText}
+            <button 
+              type="submit"
+              disabled={isLoading || !email}
+              className="font-medium cursor-pointer text-white flex sm:hidden items-center justify-center gap-2 bg-primary hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed px-8 py-3 rounded-full transition-all duration-200 text-base"
+            >
+              {isLoading ? (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <>
+                  <ChevronRight size={18} />
+                  {content.hero.ctaText}
+                </>
+              )}
             </button>
-          </div>
+          </form>
         </div>
         <LogoMarquee />
       </div>

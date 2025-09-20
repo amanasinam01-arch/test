@@ -1,11 +1,52 @@
+'use client';
+
 import { ChevronRight } from "lucide-react";
 import { ContentData } from "@/lib/content";
+import { useState } from "react";
 
 interface FooterProps {
   content: ContentData;
 }
 
 export default function Footer({ content }: FooterProps) {
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setIsLoading(true);
+    setMessage('');
+    
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setMessage('Welcome email sent! Check your inbox.');
+        setIsSuccess(true);
+        setEmail('');
+      } else {
+        setMessage(result.message || 'Something went wrong. Please try again.');
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      setMessage('Network error. Please try again.');
+      setIsSuccess(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <footer className="bg-gradient-to-br from-primary via-secondary to-tertiary py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -20,17 +61,31 @@ export default function Footer({ content }: FooterProps) {
             </p>
             
             {/* Email signup */}
-            <div className="relative max-w-md">
+            <form onSubmit={handleSubmit} className="relative max-w-md">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-full bg-black/30 backdrop-blur-sm placeholder:text-white/60 text-white text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-white/40 transition-all duration-200"
                 placeholder={content.footer.emailPlaceholder}
+                required
+                disabled={isLoading}
               />
-              <button className="font-medium cursor-pointer text-white flex items-center gap-1 absolute -right-1 top-0 bg-primary hover:bg-primary/80 h-full px-6 rounded-full transition-all duration-200 text-base">
-                <ChevronRight size={18} />
-{content.footer.ctaText}
+              <button 
+                type="submit"
+                disabled={isLoading || !email}
+                className="font-medium cursor-pointer text-white flex items-center gap-1 absolute -right-1 top-0 bg-primary hover:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed h-full px-6 rounded-full transition-all duration-200 text-base"
+              >
+                {isLoading ? (
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <>
+                    <ChevronRight size={18} />
+                    {content.footer.ctaText}
+                  </>
+                )}
               </button>
-            </div>
+            </form>
           </div>
 
           {/* Right side - Company info */}
