@@ -4,14 +4,14 @@ export interface EmailData {
 }
 
 export const userWelcomeEmail = (data: EmailData) => ({
-  subject: "Welcome to DesignBell! 🎉",
+  subject: "Welcome to TQN! 🎉",
   html: `
     <!DOCTYPE html>
     <html>
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to DesignBell</title>
+      <title>Welcome to TQN</title>
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
@@ -24,64 +24,38 @@ export const userWelcomeEmail = (data: EmailData) => ({
     <body>
       <div class="container">
         <div class="header">
-          <h1>Welcome to DesignBell! 🎉</h1>
+          <h1>Welcome to TQN! 🎉</h1>
           <p>Construction Law Made Simple</p>
         </div>
         <div class="content">
           <h2>Hello ${data.userEmail},</h2>
           
-          <p>Thank you for joining the DesignBell waitlist! We're excited to have you on board and can't wait to revolutionize how you handle construction law.</p>
+          <p>Thank you for joining the TQN waitlist!🎉</p>
           
-          <p>As a founding member, you'll get:</p>
-          <ul>
-            <li>✅ <strong>Early access</strong> to our platform</li>
-            <li>✅ <strong>Discounted pricing</strong> for life</li>
-            <li>✅ <strong>Priority support</strong> from our team</li>
-            <li>✅ <strong>Exclusive updates</strong> on our progress</li>
-          </ul>
-          
-          <p>We'll be launching on <strong>September 25, 2025</strong>, and you'll be among the first to experience our AI-powered legal assistant built specifically for Aussie builders, subcontractors, and tradies.</p>
-          
-          <p>In the meantime, we'll keep you updated on our progress and send you valuable construction law tips and insights.</p>
-          
+          <p> We're excited to have you on board and can't wait to revolutionize how you handle construction law.</p>
+        
           <p>Warm regards,<br>
-          <strong>The DesignBell Team</strong></p>
-        </div>
-        <div class="footer">
-          <p>DesignBell - Construction Law Made Simple</p>
-          <p>Headquartered in Wyoming, US</p>
+          <strong>The TQN Team</strong></p>
         </div>
       </div>
     </body>
     </html>
   `,
   text: `
-Welcome to DesignBell! 🎉
+Welcome to TQN! 🎉
 
 Hello ${data.userEmail},
 
-Thank you for joining the DesignBell waitlist! We're excited to have you on board and can't wait to revolutionize how you handle construction law.
-
-As a founding member, you'll get:
-✅ Early access to our platform
-✅ Discounted pricing for life  
-✅ Priority support from our team
-✅ Exclusive updates on our progress
-
-We'll be launching on September 25, 2025, and you'll be among the first to experience our AI-powered legal assistant built specifically for Aussie builders, subcontractors, and tradies.
-
-In the meantime, we'll keep you updated on our progress and send you valuable construction law tips and insights.
+Thank you for joining the TQN Join List. 🎉
+We are happy to welcome you and will soon send you important information and updates via email.
 
 Warm regards,
-The DesignBell Team
-
-DesignBell - Construction Law Made Simple
-Headquartered in Wyoming, US
+The TQN Team
   `
 });
 
 export const adminNotificationEmail = (data: EmailData) => ({
-  subject: "New Waitlist Registration - DesignBell",
+  subject: "New Waitlist Registration - TQN",
   html: `
     <!DOCTYPE html>
     <html>
@@ -100,43 +74,21 @@ export const adminNotificationEmail = (data: EmailData) => ({
     </head>
     <body>
       <div class="container">
-        <div class="header">
-          <h2>🔔 New Waitlist Registration</h2>
-        </div>
         <div class="content">
-          <p>A new user has joined the DesignBell waitlist!</p>
+          <p>A new user has joined the waitlist!</p>
           
           <div class="info-box">
             <h3>Registration Details:</h3>
             <p><strong>Email:</strong> ${data.userEmail}</p>
-            <p><strong>Registration Time:</strong> ${new Date().toLocaleString('en-US', { 
-              timeZone: 'UTC',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit'
-            })} UTC</p>
           </div>
-          
-          <p>This user will receive a welcome email and be added to our founding members list.</p>
-          
-          <p>You can view all waitlist registrations in your admin panel.</p>
-          
-          <p>Best regards,<br>
-          <strong>DesignBell System</strong></p>
-        </div>
-        <div class="footer">
-          <p>DesignBell Admin Notification</p>
-        </div>
       </div>
     </body>
     </html>
   `,
   text: `
-New Waitlist Registration - DesignBell
+New Waitlist Registration - TQN
 
-A new user has joined the DesignBell waitlist!
+A new user has joined the TQN waitlist!
 
 Registration Details:
 Email: ${data.userEmail}
@@ -154,6 +106,6 @@ This user will receive a welcome email and be added to our founding members list
 You can view all waitlist registrations in your admin panel.
 
 Best regards,
-DesignBell System
+TQN System
   `
 });

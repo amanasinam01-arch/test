@@ -35,7 +35,7 @@ export class RealEmailService {
       const email = userWelcomeEmail(emailData);
       
       const mailOptions = {
-        from: `"DesignBell" <${this.config.smtpUser}>`,
+        from: `"TQN" <${this.config.smtpUser}>`,
         to: userEmail,
         subject: email.subject,
         text: email.text,
@@ -61,7 +61,7 @@ export class RealEmailService {
       const email = adminNotificationEmail(emailData);
       
       const mailOptions = {
-        from: `"DesignBell System" <${this.config.smtpUser}>`,
+        from: `"TQN" <${this.config.smtpUser}>`,
         to: this.config.adminEmail,
         subject: email.subject,
         text: email.text,
