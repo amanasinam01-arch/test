@@ -37,7 +37,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
     }
   };
 
-  const updateContent = (path: string, value: string) => {
+  const updateContentField = (path: string, value: string) => {
     const keys = path.split('.');
     const newContent = { ...content };
     let current: Record<string, unknown> = newContent;
@@ -100,7 +100,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.branding.companyName}
-                    onChange={(e) => updateContent('branding.companyName', e.target.value)}
+                    onChange={(e) => updateContentField('branding.companyName', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.hero.announcement}
-                    onChange={(e) => updateContent('hero.announcement', e.target.value)}
+                    onChange={(e) => updateContentField('hero.announcement', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -124,7 +124,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Main Title</label>
                   <textarea
                     value={content.hero.title}
-                    onChange={(e) => updateContent('hero.title', e.target.value)}
+                    onChange={(e) => updateContentField('hero.title', e.target.value)}
                     rows={3}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -133,7 +133,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.hero.subtitle}
-                    onChange={(e) => updateContent('hero.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('hero.subtitle', e.target.value)}
                     rows={3}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -143,7 +143,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="datetime-local"
                     value={content.hero.launchDate.slice(0, 16)}
-                    onChange={(e) => updateContent('hero.launchDate', e.target.value + ':00')}
+                    onChange={(e) => updateContentField('hero.launchDate', e.target.value + ':00')}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.hero.ctaText}
-                    onChange={(e) => updateContent('hero.ctaText', e.target.value)}
+                    onChange={(e) => updateContentField('hero.ctaText', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -168,7 +168,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.process.title}
-                    onChange={(e) => updateContent('process.title', e.target.value)}
+                    onChange={(e) => updateContentField('process.title', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -176,7 +176,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.process.subtitle}
-                    onChange={(e) => updateContent('process.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('process.subtitle', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -185,7 +185,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Bottom Section Title</label>
                   <textarea
                     value={content.process.bottomSection.title}
-                    onChange={(e) => updateContent('process.bottomSection.title', e.target.value)}
+                    onChange={(e) => updateContentField('process.bottomSection.title', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -194,7 +194,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Bottom Section Subtitle</label>
                   <textarea
                     value={content.process.bottomSection.subtitle}
-                    onChange={(e) => updateContent('process.bottomSection.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('process.bottomSection.subtitle', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -211,7 +211,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.pricing.title}
-                    onChange={(e) => updateContent('pricing.title', e.target.value)}
+                    onChange={(e) => updateContentField('pricing.title', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -219,7 +219,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.pricing.subtitle}
-                    onChange={(e) => updateContent('pricing.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('pricing.subtitle', e.target.value)}
                     rows={3}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -236,7 +236,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.bentoGrid.badge}
-                    onChange={(e) => updateContent('bentoGrid.badge', e.target.value)}
+                    onChange={(e) => updateContentField('bentoGrid.badge', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -244,7 +244,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Main Title</label>
                   <textarea
                     value={content.bentoGrid.title}
-                    onChange={(e) => updateContent('bentoGrid.title', e.target.value)}
+                    onChange={(e) => updateContentField('bentoGrid.title', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -253,7 +253,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.bentoGrid.subtitle}
-                    onChange={(e) => updateContent('bentoGrid.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('bentoGrid.subtitle', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -270,7 +270,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.waitlist.badge}
-                    onChange={(e) => updateContent('waitlist.badge', e.target.value)}
+                    onChange={(e) => updateContentField('waitlist.badge', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -279,7 +279,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.waitlist.title}
-                    onChange={(e) => updateContent('waitlist.title', e.target.value)}
+                    onChange={(e) => updateContentField('waitlist.title', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -287,7 +287,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.waitlist.subtitle}
-                    onChange={(e) => updateContent('waitlist.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('waitlist.subtitle', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -297,7 +297,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.waitlist.ctaText}
-                    onChange={(e) => updateContent('waitlist.ctaText', e.target.value)}
+                    onChange={(e) => updateContentField('waitlist.ctaText', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -313,7 +313,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.faq.title}
-                    onChange={(e) => updateContent('faq.title', e.target.value)}
+                    onChange={(e) => updateContentField('faq.title', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -328,7 +328,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                           onChange={(e) => {
                             const newItems = [...content.faq.items];
                             newItems[index].question = e.target.value;
-                            updateContent('faq.items', JSON.stringify(newItems));
+                            updateContentField('faq.items', JSON.stringify(newItems));
                           }}
                           className="w-full p-3 rounded bg-gray-700 text-white"
                         />
@@ -340,7 +340,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                           onChange={(e) => {
                             const newItems = [...content.faq.items];
                             newItems[index].answer = e.target.value;
-                            updateContent('faq.items', JSON.stringify(newItems));
+                            updateContentField('faq.items', JSON.stringify(newItems));
                           }}
                           rows={3}
                           className="w-full p-3 rounded bg-gray-700 text-white"
@@ -361,7 +361,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.countdownSection.title}
-                    onChange={(e) => updateContent('countdownSection.title', e.target.value)}
+                    onChange={(e) => updateContentField('countdownSection.title', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -369,7 +369,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Subtitle</label>
                   <textarea
                     value={content.countdownSection.subtitle}
-                    onChange={(e) => updateContent('countdownSection.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('countdownSection.subtitle', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -379,7 +379,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="datetime-local"
                     value={content.countdownSection.targetDate.slice(0, 16)}
-                    onChange={(e) => updateContent('countdownSection.targetDate', e.target.value + ':00')}
+                    onChange={(e) => updateContentField('countdownSection.targetDate', e.target.value + ':00')}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -394,7 +394,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <label className="block text-sm font-medium mb-2">Main Title</label>
                   <textarea
                     value={content.footer.title}
-                    onChange={(e) => updateContent('footer.title', e.target.value)}
+                    onChange={(e) => updateContentField('footer.title', e.target.value)}
                     rows={2}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
@@ -404,7 +404,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.footer.subtitle}
-                    onChange={(e) => updateContent('footer.subtitle', e.target.value)}
+                    onChange={(e) => updateContentField('footer.subtitle', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -413,7 +413,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.footer.copyright}
-                    onChange={(e) => updateContent('footer.copyright', e.target.value)}
+                    onChange={(e) => updateContentField('footer.copyright', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
@@ -422,7 +422,7 @@ export default function AdminForm({ initialContent, updateAction }: AdminFormPro
                   <input
                     type="text"
                     value={content.footer.location}
-                    onChange={(e) => updateContent('footer.location', e.target.value)}
+                    onChange={(e) => updateContentField('footer.location', e.target.value)}
                     className="w-full p-3 rounded bg-gray-700 text-white"
                   />
                 </div>
